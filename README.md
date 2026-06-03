@@ -251,4 +251,8 @@ This project is intended for educational and research purposes.
 
 ---
 
+<img width="1113" height="808" alt="image" src="https://github.com/user-attachments/assets/e2a63a5d-d064-4256-8229-de22ebe542c3" />
+
+<img width="1326" height="857" alt="Screenshot 2026-06-03 173931" src="https://github.com/user-attachments/assets/1eade414-241a-45db-82db-a7829d60d852" />
+
 ### ⭐ If you found this project useful, consider giving it a star on GitHub!
