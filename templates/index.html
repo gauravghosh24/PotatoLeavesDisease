@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Disease Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="bg"></div>
+
+    <div class="container">
+
+        <h1>🥔 Potato Leaf Disease Detector</h1>
+
+        <p class="subtitle">
+            AI Powered Plant Disease Classification
+        </p>
+
+        <form action="/predict"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <label class="upload-box">
+
+                <input
+                    type="file"
+                    name="image"
+                    id="imageInput"
+                    accept="image/*"
+                    required>
+
+                <span>
+                    📷 Click to Upload Leaf Image
+                </span>
+
+            </label>
+
+            <div id="preview-container">
+                <img id="preview-image" src="" alt="">
+            </div>
+
+            <button type="submit">
+                Analyze Disease
+            </button>
+
+        </form>
+
+        {% if disease %}
+
+        <div class="result-card">
+
+            <h2>{{ disease }}</h2>
+
+            <div class="confidence-bar">
+
+                <div
+                    class="confidence-fill"
+                    style="width: {{ confidence }}%;">
+                </div>
+
+            </div>
+
+            <p>
+                Confidence: {{ confidence }}%
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <script>
+
+        const imageInput =
+            document.getElementById("imageInput");
+
+        const previewImage =
+            document.getElementById("preview-image");
+
+        imageInput.addEventListener("change", function(e){
+
+            const file = e.target.files[0];
+
+            if(file){
+
+                previewImage.src =
+                    URL.createObjectURL(file);
+
+                previewImage.style.display = "block";
+            }
+        });
+
+    </script>
+
+</body>
+</html>
